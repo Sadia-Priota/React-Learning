@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from './Button';
 
 class Clock extends React.Component {
     state = { date: new Date(), locale: 'bn-BD' };
@@ -25,15 +26,33 @@ class Clock extends React.Component {
     // }
 
 
-    handleClick(){
-        // console.log('The button was clicked');
+    handleClick = (locale) => {
         this.setState({
-            locale: 'en-US'
+            locale,
         });
-    }
+    };
 
     render() {
+        console.log('clock component rendered');
         const { date, locale } = this.state;
+
+        //conditional rendering (Another way)
+        // let button;
+
+        // if(locale === 'bn-BD'){
+        //     button = (
+        //         <Button change={this.handleClick} locale="en-US">
+        //             Click here
+        //         </Button>
+        //     );
+        // }else{
+        //   button =(
+        //     <Button change={this.handleClick} locale="bn-BD">
+        //     Click here
+        // </Button>
+        //   ) ;
+        // }
+
         // const { locale } = this.props;
         return (
             <div>
@@ -41,7 +60,20 @@ class Clock extends React.Component {
                 <span className="text">{date.toLocaleTimeString(locale)}</span>
             </h1>
 
-            <button type='button' onClick={this.handleClick}> Click Here </button>
+            {/* <button type='button' onClick={this.handleClick}>  */}
+            {/* <Button change={this.handleClick} locale="en-US">
+                    Click here
+                </Button> */}
+
+                {/* {button} */}
+
+
+                {/*     Inline Conditional Reandering */}
+                {locale === 'bn-BD' ?(
+                    <Button change={this.handleClick}locale='en-US'>Click here to show time</Button>
+                ) : (
+                    <Button change={this.handleClick}locale='bn-BD'>Click here to show time</Button>
+                )}
             </div>
         );
     }
