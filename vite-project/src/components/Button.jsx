@@ -12,11 +12,15 @@ shouldComponentUpdate(nextProps){
 
     render(){
         console.log('button componenet rendered');
-        const { change, locale } = this.props;
+        const { change, locale, show, enable } = this.props;
+        if(!enable) return null;
         return(
+            <>
             <button type="button" onClick={() => change(locale)}>
-                Click here to show time
+                {locale === 'bn-BD' ? 'Click to change in Bangla' : 'Click to change in English'}
             </button>
+            {show && <p>Hello kitty</p>}
+            </>
         );
     }
 }

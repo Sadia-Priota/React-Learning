@@ -70,9 +70,9 @@ class Clock extends React.Component {
 
                 {/*     Inline Conditional Reandering */}
                 {locale === 'bn-BD' ?(
-                    <Button change={this.handleClick}locale='en-US'>Click here to show time</Button>
+                    <Button change={this.handleClick}locale='en-US' show={false} enable={true} ></Button>
                 ) : (
-                    <Button change={this.handleClick}locale='bn-BD'>Click here to show time</Button>
+                    <Button change={this.handleClick}locale='bn-BD' show enable ></Button>
                 )}
             </div>
         );
