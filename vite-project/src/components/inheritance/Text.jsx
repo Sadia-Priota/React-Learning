@@ -6,6 +6,11 @@ export default class Text extends Emoji{
     }
 
     render(){
-        const decoratedText = this.addEmoji('I am JavaScript Language','[发呆]');
+        const decoratedText = this.addEmoji('I am JavaScript Language',' 💜 ');
+
+        return super.render(decoratedText);
     }
 }
+
+
+

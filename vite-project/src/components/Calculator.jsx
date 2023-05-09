@@ -30,7 +30,7 @@ export default class Calculator extends React.Component{
                     temperature={fahrenheit}
                     onTemperatureChange={this.handleChange}
                 />
-                <BoilingVerdict celsius={parseFloat(celsius)} />   
+                <BoilingVerdict celsius={parseFloat(celsius)} />    
             </div>
         );
     }
