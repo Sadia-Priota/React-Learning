@@ -63,21 +63,36 @@
 
 
 //inheritance
-import Text from "./components/composition/Text";
-import Emoji from "./components/composition/Emoji";
-import Bracket from "./components/composition/Bracket";
+// import Text from "./components/composition/Text";
+// import Emoji from "./components/composition/Emoji";
+// import Bracket from "./components/composition/Bracket";
 
+// function App(){
+//     // return <Emoji>{({addEmoji}) => <Text addEmoji={addEmoji}></Text>}</Emoji>;
+//     // return <Text />     -----without emoji component it's also working fine...no dependency
+
+//     return(
+//         <Emoji>
+//             {({addEmoji}) => (
+//                 <Bracket>
+//                 {({addBracket}) => <Text addEmoji={addEmoji} addBracket={addBracket}></Text>}</Bracket>
+//             )}</Emoji>
+//     )
+// }
+
+// export default App;
+
+
+//Higher order components
+import ClickCounter from "./components/HOC/ClickCounter";
+import HoverCounter from "./components/HOC/HoverCounter";
 function App(){
-    // return <Emoji>{({addEmoji}) => <Text addEmoji={addEmoji}></Text>}</Emoji>;
-    // return <Text />     -----without emoji component it's also working fine...no dependency
-
     return(
-        <Emoji>
-            {({addEmoji}) => (
-                <Bracket>
-                {({addBracket}) => <Text addEmoji={addEmoji} addBracket={addBracket}></Text>}</Bracket>
-            )}</Emoji>
-    )
+        <div>
+            <ClickCounter />
+            <HoverCounter />
+        </div>
+    );
 }
 
 export default App;
