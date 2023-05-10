@@ -84,13 +84,40 @@
 
 
 //Higher order components
-import ClickCounter from "./components/HOC/ClickCounter";
-import HoverCounter from "./components/HOC/HoverCounter";
-function App(){
-    return(
-        <div>
-            <ClickCounter />
-            <HoverCounter />
+// import ClickCounter from "./components/HOC/ClickCounter";
+// import HoverCounter from "./components/HOC/HoverCounter";
+// function App(){
+//     return(
+//         <div>
+//             <ClickCounter />
+//             <HoverCounter />
+//         </div>
+//     );
+// }
+
+// export default App;
+
+
+//render props
+import ClickCounter from "./components/render_props/ClickCounter";
+import Counter from "./components/render_props/Counter";
+import HoverCounter from "./components/render_props/HoverCounter";
+import User from "./components/render_props/User";
+
+function App() {
+    return (
+        <div className="app">
+            <Counter>
+                {(counter, incrementCount) => (
+                    <ClickCounter count={counter} incrementCount={incrementCount} />
+                )}
+            </Counter>
+            <Counter>
+                {(counter, incrementCount) => (
+                    <HoverCounter count={counter} incrementCount={incrementCount} />
+                )}
+            </Counter>
+            
         </div>
     );
 }
